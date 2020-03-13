@@ -1,0 +1,89 @@
+﻿@using IRProject.Models
+@model ViewModelAllItems
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+    <th>
+        All Products in game category
+    </th>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Games.First().Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Games.First().ShortDescription)
+            </th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (Game item in Model.Games)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </td>
+                <td>
+                    <img width="150" height="150" src="@Url.Content(item.ImagePath)" />
+                </td>
+            </tr>
+        }
+    </table>
+
+    <th>
+        All Products in keyboard category
+    </th>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Keyboards.First().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keyboards.First().Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keyboards.First().ShortDescription)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (Keyboard item in Model.Keyboards)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                </td>
+                <td>
+                    <img width="150" height="150" src="@Url.Content(item.ImagePath)" />
+                </td>
+            </tr>
+        }
+    </table>

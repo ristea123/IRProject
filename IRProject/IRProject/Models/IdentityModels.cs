@@ -29,5 +29,11 @@ namespace IRProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<IRProject.Models.Game> Games { get; set; }
+
+        public System.Data.Entity.DbSet<IRProject.Models.Keyboard> Keyboards { get; set; }
+
+        public System.Data.Entity.DbSet<IRProject.Models.ViewModelAllItems> ViewModelAllItems { get; set; }
     }
 }
